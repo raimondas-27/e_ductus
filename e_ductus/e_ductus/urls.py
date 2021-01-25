@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from e_ductus.views import index
+from e_ductus.views import base, home
 
 urlpatterns = [
-    path('', index),
+    path('', base),
+    path('home/', home),
     path('admin/', admin.site.urls),
 ]
