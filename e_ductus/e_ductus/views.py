@@ -8,3 +8,4 @@ def base(request: HttpRequest):
 
 def home(request: HttpRequest):
     return render(request, 'home.html')
+
