@@ -9,7 +9,7 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, \
     DeleteView
 
-#
+
 # def base(request: HttpRequest):
 #     return render(request, 'base.html')
 #
