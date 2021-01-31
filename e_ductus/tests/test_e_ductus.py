@@ -1,4 +1,11 @@
 from unittest import TestCase
+
+# from django.test import TestCase
+from django.contrib.auth.models import User
+
+from django.test import Client, SimpleTestCase
+from django.views.generic import TemplateView
+from e_ductus.models import Subject, Course
 import pytest
 from e_ductus.models import Subject
 from django.urls import resolve
@@ -8,14 +15,7 @@ from e_ductus.views import CourseDeleteView
 from e_ductus.views import CourseUpdateView
 from e_ductus.views import CourseCreateView
 from e_ductus.views import ManageCourseListView
-
-
-# def test_base(client):
-#     assert client.get('').status_code == 200
-
-
-# def test_home(client):
-#     assert client.get('/home/').status_code == 200
+from e_ductus.views import OwnerMixin
 
 
 class HomeViewTest(TestCase):
@@ -79,3 +79,15 @@ def test_models():
     subject = Subject.objects.create(title="django1", slug="django")
     assert subject.title == "django1"
     assert subject.slug == "django"
+
+
+class OwnerMixinTest(SimpleTestCase):
+    
+    class MyView(OwnerMixin, TemplateView):
+        pass
+    
+    def test_owner_mixin(self):
+        my_view = self.MyView()
+        context = my_view.get_context_data()
+        self.assertTrue(context)
+        
