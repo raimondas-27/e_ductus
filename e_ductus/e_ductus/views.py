@@ -1,21 +1,11 @@
-from django.http import HttpRequest
 from django.shortcuts import render
 from django.views import View
-from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from .models import Course
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, \
     DeleteView
-
-
-# def base(request: HttpRequest):
-#     return render(request, 'base.html')
-#
-#
-# def home(request: HttpRequest):
-#     return render(request, 'home.html')
 
 
 class HomeView(View):
