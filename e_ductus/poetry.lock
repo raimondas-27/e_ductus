@@ -172,6 +172,14 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "print-python"
+version = "0.1.6"
+description = "Print Python client"
+category = "main"
+optional = false
+python-versions = ">=3"
+
+[[package]]
 name = "py"
 version = "1.10.0"
 description = "library with cross-python path, ini-parsing, io, code, log facilities"
@@ -305,7 +313,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "8127e84911da6b1aaa1f2458638eede94c170cadba1c37dc82833faf57301d31"
+content-hash = "3dd19c7d6d8f837cbe8af86f569fb4fb527d5215be6334905e84b7f1708edf4f"
 
 [metadata.files]
 asgiref = [
@@ -468,6 +476,10 @@ pluggy = [
 pprintpp = [
     {file = "pprintpp-0.4.0-py2.py3-none-any.whl", hash = "sha256:b6b4dcdd0c0c0d75e4d7b2f21a9e933e5b2ce62b26e1a54537f9651ae5a5c01d"},
     {file = "pprintpp-0.4.0.tar.gz", hash = "sha256:ea826108e2c7f49dc6d66c752973c3fc9749142a798d6b254e1e301cfdbc6403"},
+]
+print-python = [
+    {file = "print-python-0.1.6.tar.gz", hash = "sha256:d9b89f79f987bd58990d112b0d326de6c73be65d3b64a20c82afed30dfc54d91"},
+    {file = "print_python-0.1.6-py3-none-any.whl", hash = "sha256:fd5300f375a636a08fbb1e1ea2d2b211267b397eb0bb963b9a96bd17cb93270e"},
 ]
 py = [
     {file = "py-1.10.0-py2.py3-none-any.whl", hash = "sha256:3b80836aa6d1feeaa108e046da6423ab8f6ceda6468545ae8d02d9d58d18818a"},
