@@ -1,0 +1,99 @@
+[
+{
+  "model": "e_ductus.subject",
+  "pk": 1,
+  "fields": {
+    "title": "Python",
+    "slug": "python"
+  }
+},
+{
+  "model": "e_ductus.subject",
+  "pk": 2,
+  "fields": {
+    "title": "Java",
+    "slug": "java"
+  }
+},
+{
+  "model": "e_ductus.subject",
+  "pk": 3,
+  "fields": {
+    "title": "Ruby",
+    "slug": "ruby"
+  }
+},
+{
+  "model": "e_ductus.subject",
+  "pk": 4,
+  "fields": {
+    "title": "Vue.js",
+    "slug": "vuejs"
+  }
+},
+{
+  "model": "e_ductus.course",
+  "pk": 4,
+  "fields": {
+    "owner": 1,
+    "subject": 1,
+    "title": "python one",
+    "slug": "python",
+    "overview": "python one python one python one",
+    "created": "",
+    "students": []
+  }
+},
+{
+  "model": "e_ductus.course",
+  "pk": 5,
+  "fields": {
+    "owner": 1,
+    "subject": 1,
+    "title": "python two",
+    "slug": "python_two",
+    "overview": "python two python two python two",
+    "created": "",
+    "students": []
+  }
+},
+{
+  "model": "e_ductus.course",
+  "pk": 6,
+  "fields": {
+    "owner": 1,
+    "subject": 1,
+    "title": "python three",
+    "slug": "python_three",
+    "overview": "python three python three python three",
+    "created": "",
+    "students": []
+  }
+},
+{
+  "model": "e_ductus.course",
+  "pk": 7,
+  "fields": {
+    "owner": 1,
+    "subject": 2,
+    "title": "java 1",
+    "slug": "java1",
+    "overview": "java java java",
+    "created": "",
+    "students": []
+  }
+},
+{
+  "model": "e_ductus.course",
+  "pk": 9,
+  "fields": {
+    "owner": 1,
+    "subject": 1,
+    "title": "Test2",
+    "slug": "test2",
+    "overview": "course/mine/course/mine/course/mine/course/mine/course/mine/course/mine/course/mine/",
+    "created": "",
+    "students": []
+  }
+}
+]
