@@ -8,3 +8,7 @@ ModuleFormSet = inlineformset_factory(Course,
                                               'description'],
                                       extra=2,
                                       can_delete=True)
+
+
+class CourseEnrollForm(forms.Form):
+    course = forms.ModelChoiceField(queryset=Course.objects.all(), widget=forms.HiddenInput)
