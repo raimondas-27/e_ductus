@@ -32,9 +32,16 @@ def test_user_logout(client, authenticated_user):
 
 
 
-
-
-
+class OwnerMixinTest(SimpleTestCase):
+    
+    class MyView(OwnerMixin, TemplateView):
+        pass
+    
+    def test_owner_mixin(self):
+        my_view = self.MyView()
+        context = my_view.get_context_data()
+        self.assertTrue(context)
+        
 
 # @pytest.mark.django_db
 # def test_superuser_view(admin_client):
