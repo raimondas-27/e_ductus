@@ -7,9 +7,12 @@ from e_ductus.views import CourseListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('', CourseListView.as_view(), name='course_list'),
+
     path('accounts/login/', auth_views.LoginView.as_view(),
          name='login'),
+
     path('accounts/logout/', auth_views.LogoutView.as_view(),
          name='logout'),
 
