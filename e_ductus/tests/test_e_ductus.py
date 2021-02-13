@@ -5,13 +5,34 @@ from django.urls import reverse
 
 
 @pytest.mark.parametrize("param", [
-    ("home"),
-    ("base"),
+    ("course_list"),
+
 ])
-def test_render_views(client, param):
+def test_render_views(admin_client, param):
     temp_url = urls.reverse(param)
-    resp = client.get(temp_url)
-    assert resp.status_code == 200
+    response = admin_client.get(temp_url)
+    assert response.status_code == 200
+
+
+@pytest.mark.parametrize("param1", [
+
+    ("manage_course_list"),
+    ("course_create"),
+    # ("course_edit"),
+    # ("course_delete"),
+
+])
+def test_superusers_functionality_view(admin_client, param1):
+    temp_url = urls.reverse(param1)
+    response = admin_client.get(temp_url)
+    assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_admin_functionality(admin_client):
+    url = reverse("module_order")
+    response = admin_client.get(url)
+    assert response.status_code == 405
 
 
 @pytest.mark.django_db
@@ -31,20 +52,14 @@ def test_user_logout(client, authenticated_user):
     assert resp.status_code == 302
 
 
-
-class OwnerMixinTest(SimpleTestCase):
-    
-    class MyView(OwnerMixin, TemplateView):
-        pass
-    
-    def test_owner_mixin(self):
-        my_view = self.MyView()
-        context = my_view.get_context_data()
-        self.assertTrue(context)
-        
-
 # @pytest.mark.django_db
-# def test_superuser_view(admin_client):
-#     url = reverse('admin')
-#     response = admin_client.get(url)
-#     assert response.status_code == 200
+# def test_student_registration(client, user_data):
+#     user_model = get_user_model()
+#     assert user_model.objects.count() == 0
+#     signup_url = urls.reverse("student_registration")
+#     resp = client.post(signup_url, user_data)
+#     assert user_model.objects.count() == 1
+#     assert resp.status_code == 302
+
+
+

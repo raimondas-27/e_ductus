@@ -40,6 +40,7 @@ builtins.pp = pp
 
 @pytest.fixture
 def user_data():
+    print(user_data)
     return {"email": "user_email", "username": "user_name", "password": "user_pass543"}
 
 
