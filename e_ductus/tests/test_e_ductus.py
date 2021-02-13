@@ -23,12 +23,18 @@ def test_user_login(client, create_test_user, user_data):
     assert resp.status_code == 302
 
 
-# @pytest.mark.django_db
-# def test_user_logout(client, authenticated_user):
-#     logout_url = urls.reverse("logout")
-#     resp = client.get(logout_url)
-#     assert resp.status_code == 302
-#     assert resp.url == urls.reverse('home')
+@pytest.mark.django_db
+def test_user_logout(client, authenticated_user):
+    logout_url = urls.reverse("logout")
+    print(logout_url)
+    resp = client.get(logout_url)
+    assert resp.status_code == 302
+
+
+
+
+
+
 
 # @pytest.mark.django_db
 # def test_superuser_view(admin_client):
