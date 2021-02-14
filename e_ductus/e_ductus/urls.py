@@ -6,13 +6,13 @@ from django.contrib.auth import views as auth_views
 from e_ductus.views import CourseListView
 
 urlpatterns = [
-
-    path('admin/', admin.site.urls, name='admin'),
+    path('admin/', admin.site.urls),
 
     path('', CourseListView.as_view(), name='course_list'),
 
     path('accounts/login/', auth_views.LoginView.as_view(),
          name='login'),
+
     path('accounts/logout/', auth_views.LogoutView.as_view(),
          name='logout'),
 
@@ -27,12 +27,15 @@ urlpatterns = [
     path('mine/',
          views.ManageCourseListView.as_view(),
          name='manage_course_list'),
+
     path('create/',
          views.CourseCreateView.as_view(),
          name='course_create'),
+
     path('<pk>/edit/',
          views.CourseUpdateView.as_view(),
          name='course_edit'),
+
     path('<pk>/delete/',
          views.CourseDeleteView.as_view(),
          name='course_delete'),
@@ -73,4 +76,21 @@ urlpatterns = [
          views.CourseDetailView.as_view(),
          name='course_detail'),
 
+    path('mine/courses/',
+         views.StudentCourseListView.as_view(),
+         name='student_course_list'),
+
+    path('mine/course/<pk>/',
+         views.StudentCourseDetailView.as_view(),
+         name='student_course_detail'),
+
+    path('mine/course/<pk>/<module_id>/',
+         views.StudentCourseDetailView.as_view(),
+         name='student_course_detail_module'),
+
+
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
