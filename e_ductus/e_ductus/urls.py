@@ -1,6 +1,7 @@
 from django.contrib import admin
+from django.template.context_processors import static
 from django.urls import path
-from . import views
+from . import views, settings
 from django.contrib.auth import views as auth_views
 
 from e_ductus.views import CourseListView
@@ -91,6 +92,6 @@ urlpatterns = [
 
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL,
+#                           document_root=settings.MEDIA_ROOT)
