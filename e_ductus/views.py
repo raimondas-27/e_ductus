@@ -11,10 +11,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin, \
 from django.forms.models import modelform_factory
 from django.apps import apps
 from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
-from .models import Course, Module, Content, Subject
-from .forms import ModuleFormSet, CourseEnrollForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
+
+from e_ductus.models import Course, Module, Content, Subject
+from e_ductus.forms import ModuleFormSet, CourseEnrollForm
 
 
 class OwnerMixin():
@@ -38,11 +39,11 @@ class OwnerCourseMixin(OwnerMixin,
 
 
 class OwnerCourseEditMixin(OwnerCourseMixin, OwnerEditMixin):
-    template_name = 'courses/manage/course/form.html'
+    template_name = 'e_ductus/courses/manage/course/form.html'
 
 
 class ManageCourseListView(OwnerCourseMixin, ListView):
-    template_name = 'courses/manage/course/list.html'
+    template_name = 'e_ductus/courses/manage/course/list.html'
     permission_required = 'courses.view_course'
 
 
@@ -55,12 +56,12 @@ class CourseUpdateView(OwnerCourseEditMixin, UpdateView):
 
 
 class CourseDeleteView(OwnerCourseMixin, DeleteView):
-    template_name = 'courses/manage/course/delete.html'
+    template_name = 'e_ductus/courses/manage/course/delete.html'
     permission_required = 'courses.delete_course'
 
 
 class CourseModuleUpdateView(TemplateResponseMixin, View):
-    template_name = 'courses/manage/module/formset.html'
+    template_name = 'e_ductus/courses/manage/module/formset.html'
     course = None
 
     def get_formset(self, data=None):
@@ -91,7 +92,7 @@ class ContentCreateUpdateView(TemplateResponseMixin, View):
     module = None
     model = None
     obj = None
-    template_name = 'courses/manage/content/form.html'
+    template_name = 'e_ductus/courses/manage/content/form.html'
 
     def get_model(self, model_name):
         if model_name in ['text', 'video', 'image', 'file']:
@@ -153,7 +154,7 @@ class ContentDeleteView(View):
 
 
 class ModuleContentListView(TemplateResponseMixin, View):
-    template_name = 'courses/manage/module/content_list.html'
+    template_name = 'e_ductus/courses/manage/module/content_list.html'
 
     def get(self, request, module_id):
         module = get_object_or_404(Module,
@@ -186,7 +187,7 @@ class ContentOrderView(CsrfExemptMixin,
 
 class CourseListView(TemplateResponseMixin, View):
     model = Course
-    template_name = 'courses/course/list.html'
+    template_name = 'e_ductus/courses/course/list.html'
 
     def get(self, request, subject=None):
         subjects = Subject.objects.annotate(
@@ -203,7 +204,7 @@ class CourseListView(TemplateResponseMixin, View):
 
 class CourseDetailView(DetailView):
     model = Course
-    template_name = 'courses/course/detail.html'
+    template_name = 'e_ductus/courses/course/detail.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -213,7 +214,7 @@ class CourseDetailView(DetailView):
 
 
 class StudentRegistrationView(CreateView):
-    template_name = 'students/student/registration.html'
+    template_name = 'e_ductus/students/student/registration.html'
     form_class = UserCreationForm
     success_url = reverse_lazy('student_course_list')
 
@@ -243,7 +244,7 @@ class StudentEnrollCourseView(LoginRequiredMixin, FormView):
 
 class StudentCourseListView(LoginRequiredMixin, ListView):
     model = Course
-    template_name = 'students/course/list.html'
+    template_name = 'e_ductus/students/course/list.html'
 
     def get_queryset(self):
         qs = super().get_queryset()
@@ -252,7 +253,7 @@ class StudentCourseListView(LoginRequiredMixin, ListView):
 
 class StudentCourseDetailView(DetailView):
     model = Course
-    template_name = 'students/course/detail.html'
+    template_name = 'e_ductus/students/course/detail.html'
 
     def get_queryset(self):
         qs = super().get_queryset()

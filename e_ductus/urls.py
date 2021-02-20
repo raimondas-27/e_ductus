@@ -5,6 +5,7 @@ from django.contrib.auth import views as auth_views
 
 from e_ductus.views import CourseListView
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -14,7 +15,7 @@ urlpatterns = [
          name='login'),
 
     path('accounts/logout/', auth_views.LogoutView.as_view(),
-         name='logout'),
+         name='logged_out'),
 
     path('register/',
          views.StudentRegistrationView.as_view(),

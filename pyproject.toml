@@ -2,19 +2,15 @@
 name = "e_ductus"
 version = "0.1.0"
 description = ""
-authors = ["Marius-prog <msabaliauskas@gmail.com >"]
+authors = ["Marius-prog <msabaliauskas@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
 Django = "^3.1.5"
 Pillow = "^8.1.0"
 coverage = "^5.3.1"
-pytest = "^6.2.2"
-pprintpp = "^0.4.0"
-Pygments = "^2.7.4"
 django-braces = "^1.14.0"
 django-embed-video = "1.3.2"
-
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.2"
@@ -22,7 +18,8 @@ django-stubs = "^1.7.0"
 pytest-django = "^4.1.0"
 pytest-cov = "^2.11.1"
 flake8 = "^3.8.4"
-
+pprintpp = "^0.4.0"
+Pygments = "^2.7.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
