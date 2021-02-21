@@ -7,7 +7,9 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from ..models import Subject, Course
-from .serializers import SubjectSerializer, CourseSerializer, CourseWithContentsSerializer
+from .serializers import SubjectSerializer
+from .serializers import CourseWithContentsSerializer
+from .serializers import CourseSerializer
 from .permissions import IsEnrolled
 
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from . import views
 from django.contrib.auth import views as auth_views
 
@@ -88,6 +88,8 @@ urlpatterns = [
     path('mine/course/<pk>/<module_id>/',
          views.StudentCourseDetailView.as_view(),
          name='student_course_detail_module'),
+
+    path('api/', include('e_ductus.api.urls', namespace='api')),
 
 
 ]
