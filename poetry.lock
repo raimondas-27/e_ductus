@@ -256,6 +256,17 @@ Django = ">=1.11"
 requests = ">=2.19"
 
 [[package]]
+name = "django-rest-framework"
+version = "0.1.0"
+description = "alias."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+djangorestframework = "*"
+
+[[package]]
 name = "django-stubs"
 version = "1.7.0"
 description = "Mypy stubs for Django"
@@ -267,6 +278,17 @@ python-versions = ">=3.6"
 django = "*"
 mypy = ">=0.790"
 typing-extensions = "*"
+
+[[package]]
+name = "djangorestframework"
+version = "3.12.2"
+description = "Web APIs for Django, made easy."
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+django = ">=2.2"
 
 [[package]]
 name = "flake8"
@@ -715,7 +737,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "02e0f3d0f9fcf51cb65ce5537abce59d7b95903c4ab13036e20c4f660e091d73"
+content-hash = "dfac1b28601bcb94ece6af4f52625a9b1266f7a1f6915d43a95412993a9db395"
 
 [metadata.files]
 aioredis = [
@@ -890,9 +912,16 @@ django-embed-video = [
     {file = "django-embed-video-1.3.2.tar.gz", hash = "sha256:2934cfdf88793d2a2b054a186ba38d138739c16ca8b892230599f1839c686858"},
     {file = "django_embed_video-1.3.2-py3-none-any.whl", hash = "sha256:94907b8241edaecc926150473541c6c121edd1aae1345fa37db8fbdf3dd56153"},
 ]
+django-rest-framework = [
+    {file = "django-rest-framework-0.1.0.tar.gz", hash = "sha256:47a8f496fa69e3b6bd79f68dd7a1527d907d6b77f009e9db7cf9bb21cc565e4a"},
+]
 django-stubs = [
     {file = "django-stubs-1.7.0.tar.gz", hash = "sha256:ddd190aca5b9adb4d30760d5c64f67cb3658703f5f42c3bb0c2c71ff4d752c39"},
     {file = "django_stubs-1.7.0-py3-none-any.whl", hash = "sha256:30a7d99c694acf79c5d93d69a5a8e4b54d2a8c11dd672aa869006789e2189fa6"},
+]
+djangorestframework = [
+    {file = "djangorestframework-3.12.2-py3-none-any.whl", hash = "sha256:0209bafcb7b5010fdfec784034f059d512256424de2a0f084cb82b096d6dd6a7"},
+    {file = "djangorestframework-3.12.2.tar.gz", hash = "sha256:0898182b4737a7b584a2c73735d89816343369f259fea932d90dc78e35d8ac33"},
 ]
 flake8 = [
     {file = "flake8-3.8.4-py2.py3-none-any.whl", hash = "sha256:749dbbd6bfd0cf1318af27bf97a14e28e5ff548ef8e5b1566ccfb25a11e7c839"},

@@ -1,10 +1,11 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from . import views
 from django.contrib.auth import views as auth_views
 
 from e_ductus.views import CourseListView
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -89,11 +90,12 @@ urlpatterns = [
          views.StudentCourseDetailView.as_view(),
          name='student_course_detail_module'),
 
-    path('api/', include('e_ductus.api.urls', namespace='api')),
+    path('chat/', include('chat.urls', namespace='chat')),
 
+    path('api/', include('e_ductus.api.urls', namespace='api')),
 
 ]
 
-# if settings.DEBUG:
-#     urlpatterns += static(settings.MEDIA_URL,
-#                           document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'e_ductus.apps.AppConfig',
     'e_ductus',
     'embed_video',
     'chat',
@@ -131,14 +130,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 ASGI_APPLICATION = 'e_ductus.routing.application'
 
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            'hosts': [('127.0.0.1', 6379)],
-        },
-    },
-}
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             'hosts': [('127.0.0.1', 6379)],
+#         },
+#     },
+# }
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
