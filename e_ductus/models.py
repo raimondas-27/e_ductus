@@ -87,7 +87,7 @@ class ItemBase(models.Model):
         return self.title
 
     def render(self):
-        return render_to_string(f'courses/content/{self._meta.model_name}.html',
+        return render_to_string(f'e_ductus/courses/content/{self._meta.model_name}.html',
                                 {'item': self})
 
 
@@ -100,7 +100,14 @@ class File(ItemBase):
 
 
 class Image(ItemBase):
-    file = models.FileField(upload_to='images')
+    file = models.FileField(upload_to='images', blank=True)
+
+# class Image(models.Model):
+    # title = models.CharField(max_length=200)
+    # file = models.ImageField(upload_to='images')
+
+    # def __str__(self):
+    #     return self.title
 
 
 class Video(ItemBase):

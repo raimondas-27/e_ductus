@@ -69,7 +69,8 @@ def test_user_login(client, create_test_user, user_data):
 def test_user_logout(client, authenticated_user):
     logout_url = urls.reverse("logged_out")
     resp = client.get(logout_url)
-    assert resp.status_code == 302
+    # 302 or 200
+    assert resp.status_code == 200
 
 
 @pytest.mark.django_db

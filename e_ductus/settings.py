@@ -35,8 +35,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'e_ductus.apps.AppConfig',
     'e_ductus',
     'embed_video',
+    'chat',
+    'channels',
     'rest_framework',
 
 ]
@@ -120,11 +123,22 @@ STATIC_URL = '/static/'
 from django.urls import reverse_lazy
 
 LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
-# LOGOUT_REDIRECT_URL = reverse_lazy('logged_out')
+LOGOUT_REDIRECT_URL = reverse_lazy('logged_out')
 # LOGIN_REDIRECT_URL = '/mine'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+ASGI_APPLICATION = 'e_ductus.routing.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [

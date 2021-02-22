@@ -1,6 +1,6 @@
 from django.db.models import Count
 from django.urls import reverse_lazy
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect
 from django.views.generic.detail import DetailView
 from django.views.generic.base import TemplateResponseMixin, View
 from django.views.generic.list import ListView
@@ -13,6 +13,8 @@ from django.apps import apps
 from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
+from django.shortcuts import render, get_object_or_404
+
 
 from e_ductus.models import Course, Module, Content, Subject
 from e_ductus.forms import ModuleFormSet, CourseEnrollForm
@@ -271,3 +273,6 @@ class StudentCourseDetailView(DetailView):
             # get first module
             context['module'] = course.modules.all()[0]
         return context
+
+
+
