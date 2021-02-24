@@ -2,8 +2,8 @@ from django import urls
 import pytest
 from django.contrib.auth import get_user_model
 from django.urls import reverse
-
-from e_ductus.e_ductus.models import Subject, Course
+from e_ductus.models import Course
+from e_ductus.models import Subject
 
 
 @pytest.mark.parametrize("param", [
@@ -29,6 +29,8 @@ def test_superusers_functionality_view(admin_client, param1):
 @pytest.mark.parametrize("param1", [
     "course_edit",
     "course_delete",
+    "course_module_update",
+
 ])
 def test_superusers_functionality_view(admin_client, admin_user, param1):
     subject = Subject.objects.create(
@@ -69,8 +71,7 @@ def test_user_login(client, create_test_user, user_data):
 def test_user_logout(client, authenticated_user):
     logout_url = urls.reverse("logged_out")
     resp = client.get(logout_url)
-    # 302 or 200
-    assert resp.status_code == 200
+    assert resp.status_code == 200;
 
 
 @pytest.mark.django_db
@@ -85,3 +86,6 @@ def test_student_registration(client, user_data):
     })
     assert resp.status_code == 302, resp.context['form'].errors.as_text()
     assert user_model.objects.count() == 1
+
+
+

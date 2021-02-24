@@ -7,6 +7,7 @@ from django.contrib.auth import views as auth_views
 
 from e_ductus.views import CourseListView
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -93,6 +94,9 @@ urlpatterns = [
     path('chat/', include('chat.urls', namespace='chat')),
 
     path('api/', include('e_ductus.api.urls', namespace='api')),
+
+    path('accounts/', include('allauth.urls')),
+
 
 ]
 

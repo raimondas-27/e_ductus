@@ -40,6 +40,13 @@ INSTALLED_APPS = [
     'chat',
     'channels',
     'rest_framework',
+    'django.contrib.sites',
+    #Aallauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+
 
 ]
 
@@ -122,6 +129,8 @@ STATIC_URL = '/static/'
 from django.urls import reverse_lazy
 
 LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
+# LOGOUT_REDIRECT_URL = reverse_lazy('logged_out')
+# LOGIN_REDIRECT_URL = '/mine'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
@@ -141,4 +150,11 @@ CHANNEL_LAYERS = {
             'hosts': [('127.0.0.1', 6379)],
         },
     },
+}
+
+SITE_ID=1
+
+AUTHENTICATION_BACKENDS = {
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 }
