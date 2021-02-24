@@ -2,8 +2,8 @@ from django import urls
 import pytest
 from django.contrib.auth import get_user_model
 from django.urls import reverse
-from e_ductus.models import Course
-from e_ductus.models import Subject
+
+from e_ductus.e_ductus.models import Subject, Course
 
 
 @pytest.mark.parametrize("param", [
@@ -85,6 +85,3 @@ def test_student_registration(client, user_data):
     })
     assert resp.status_code == 302, resp.context['form'].errors.as_text()
     assert user_model.objects.count() == 1
-
-
-

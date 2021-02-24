@@ -18,6 +18,8 @@ from django.shortcuts import render, get_object_or_404
 
 from e_ductus.models import Course, Module, Content, Subject
 from e_ductus.forms import ModuleFormSet, CourseEnrollForm
+# from e_ductus.e_ductus.forms import ModuleFormSet, CourseEnrollForm
+# from e_ductus.e_ductus.models import Course, Module, Content, Subject
 
 
 class OwnerMixin():
