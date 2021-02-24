@@ -29,6 +29,8 @@ def test_superusers_functionality_view(admin_client, param1):
 @pytest.mark.parametrize("param1", [
     "course_edit",
     "course_delete",
+    "course_module_update",
+
 ])
 def test_superusers_functionality_view(admin_client, admin_user, param1):
     subject = Subject.objects.create(
@@ -69,7 +71,7 @@ def test_user_login(client, create_test_user, user_data):
 def test_user_logout(client, authenticated_user):
     logout_url = urls.reverse("logged_out")
     resp = client.get(logout_url)
-    assert resp.status_code == 302
+    assert resp.status_code == 200;
 
 
 @pytest.mark.django_db
