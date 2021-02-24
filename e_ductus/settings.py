@@ -38,6 +38,13 @@ INSTALLED_APPS = [
     'e_ductus',
     'embed_video',
     'rest_framework',
+    'django.contrib.sites',
+    #Aallauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+
 
 ]
 
@@ -130,4 +137,11 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
+}
+
+SITE_ID=1
+
+AUTHENTICATION_BACKENDS = {
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 }

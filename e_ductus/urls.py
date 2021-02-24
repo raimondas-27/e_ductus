@@ -91,6 +91,8 @@ urlpatterns = [
 
     path('api/', include('e_ductus.api.urls', namespace='api')),
 
+    path('accounts/', include('allauth.urls')),
+
 
 ]
 
