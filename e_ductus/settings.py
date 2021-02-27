@@ -37,16 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'e_ductus',
     'embed_video',
-    'rest_framework',
     'chat',
     'channels',
-    #required
+    'rest_framework',
     'django.contrib.sites',
     #Aallauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
 
 
@@ -55,9 +53,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # 'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -137,7 +133,7 @@ LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
 # LOGIN_REDIRECT_URL = '/mine'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -147,14 +143,6 @@ REST_FRAMEWORK = {
 
 ASGI_APPLICATION = 'e_ductus.routing.application'
 
-
-SITE_ID=1
-
-AUTHENTICATION_BACKENDS = {
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-}
-
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
@@ -162,4 +150,11 @@ CHANNEL_LAYERS = {
             'hosts': [('127.0.0.1', 6379)],
         },
     },
+}
+
+SITE_ID=1
+
+AUTHENTICATION_BACKENDS = {
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 }

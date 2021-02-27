@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from . import views
@@ -11,10 +13,10 @@ urlpatterns = [
 
     path('', CourseListView.as_view(), name='course_list'),
 
-    path('account/login/', auth_views.LoginView.as_view(template_name="e_ductus/registration/login.html"),
+    path('accounts/login/', auth_views.LoginView.as_view(template_name="e_ductus/registration/login.html"),
          name='login'),
 
-    path('account/logout/', auth_views.LogoutView.as_view(template_name="e_ductus/registration/logged_out.html"),
+    path('accounts/logout/', auth_views.LogoutView.as_view(template_name="e_ductus/registration/logged_out.html"),
          name='logged_out'),
 
     path('register/',
@@ -89,13 +91,15 @@ urlpatterns = [
          views.StudentCourseDetailView.as_view(),
          name='student_course_detail_module'),
 
+    path('chat/', include('chat.urls', namespace='chat')),
+
     path('api/', include('e_ductus.api.urls', namespace='api')),
 
     path('accounts/', include('allauth.urls')),
 
-    path('chat/', include('chat.urls', namespace='chat')),
+
 ]
 
-# if settings.DEBUG:
-#     urlpatterns += static(settings.MEDIA_URL,
-#                           document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
