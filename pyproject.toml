@@ -2,7 +2,7 @@
 name = "e_ductus"
 version = "0.1.0"
 description = ""
-authors = ["Marius-prog <msabaliauskas@gmail.com>"]
+authors = ["Marius-prog <msabaliauskas@gmail.com>", "raimondas-27 <raimondas.kurklenas@gamail.com"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
