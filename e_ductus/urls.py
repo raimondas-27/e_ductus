@@ -11,10 +11,10 @@ urlpatterns = [
 
     path('', CourseListView.as_view(), name='course_list'),
 
-    path('accounts/login/', auth_views.LoginView.as_view(template_name="e_ductus/registration/login.html"),
+    path('account/login/', auth_views.LoginView.as_view(template_name="e_ductus/registration/login.html"),
          name='login'),
 
-    path('accounts/logout/', auth_views.LogoutView.as_view(template_name="e_ductus/registration/logged_out.html"),
+    path('account/logout/', auth_views.LogoutView.as_view(template_name="e_ductus/registration/logged_out.html"),
          name='logged_out'),
 
     path('register/',
@@ -93,8 +93,7 @@ urlpatterns = [
 
     path('accounts/', include('allauth.urls')),
 
-
-
+    path('chat/', include('chat.urls', namespace='chat')),
 ]
 
 # if settings.DEBUG:
