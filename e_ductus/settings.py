@@ -37,16 +37,27 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'e_ductus',
     'embed_video',
+    'rest_framework',
     'chat',
     'channels',
-    'rest_framework',
+    #required
+    'django.contrib.sites',
+    #Aallauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
+
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # 'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
+    # 'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -122,9 +133,11 @@ STATIC_URL = '/static/'
 from django.urls import reverse_lazy
 
 LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
+# LOGOUT_REDIRECT_URL = reverse_lazy('logged_out')
+# LOGIN_REDIRECT_URL = '/mine'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -133,6 +146,14 @@ REST_FRAMEWORK = {
 }
 
 ASGI_APPLICATION = 'e_ductus.routing.application'
+
+
+SITE_ID=1
+
+AUTHENTICATION_BACKENDS = {
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+}
 
 CHANNEL_LAYERS = {
     'default': {

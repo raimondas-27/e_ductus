@@ -1,8 +1,13 @@
 {% extends "base.html" %}
 
+
 {% block title %}Log-in{% endblock %}
 
 {% block content %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+
   <h1>Sign-in</h1>
   <div class="module">
     {% if form.errors %}
@@ -17,6 +22,10 @@
         <input type="hidden" name="next" value="{{ next }}" />
         <p><input type="submit" value="Log-in"></p>
       </form>
+
+      <button><a href="{% provider_login_url 'google' %}"> Google login </a> </button>
+      <button><a href="{% provider_login_url 'facebook' method='oauth2' %}"> Facebook login </a> </button>
+
     </div>
   </div>
 {% endblock %}
