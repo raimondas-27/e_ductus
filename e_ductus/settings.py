@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'e_ductus',
     'embed_video',
     'rest_framework',
+    #required
     'django.contrib.sites',
     #Aallauth
     'allauth',

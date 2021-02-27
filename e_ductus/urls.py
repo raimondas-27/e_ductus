@@ -94,6 +94,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
 
 
+
 ]
 
 # if settings.DEBUG:
